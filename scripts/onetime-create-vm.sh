@@ -12,22 +12,25 @@
 # 1. If your host is on a local network with a DHCP server, the VMs will get addresses via DHCP.
 # 2. Otherwise, you can assign VMs static addresses in the same subnet as your host.
 
-# grab the current directory full path name.
+# grab the current directory full path name. 
 d1=$(cd $(dirname $0); pwd)
 
 # Keep this section - this grabs the unzipped floodlight-vm folder
-# echo "Unzipping floodlight-vm.zip" 
-# unzip -o floodlight-vm.zip > unzip.out
-# d2=$(cat unzip.out | awk '/ inflating:/ {print $2}'| awk -F/ '{print $1}'|head -1)
+# EDITED
+echo "Unzipping floodlight-vm.zip" 
+unzip -o floodlight-vm.zip > unzip.out
+d2=$(cat unzip.out | awk '/ inflating:/ {print $2}'| awk -F/ '{print $1}'|head -1)
 
 # If you already have an unzipped vmdk, you can specify its directory name below
-d2="floodlightcontroller-test"
+# EDITED
+#d2="floodlightcontroller-test"
 
 cd $d2
 
 # USER: set the host interface you use to bridge your VM to your physical host: 
 # e.g., on Mac OS X, en0 for Ethernet, en1 for Wi-Fi, on Linux eth0 for Ethernet, eth1 for Wi-Fi, etc.
-activeif="en1"
+# EDITED
+activeif="eth0"
 
 # create and register first VM (for console) to VirtualBox
 
